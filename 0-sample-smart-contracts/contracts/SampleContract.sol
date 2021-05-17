@@ -6,8 +6,11 @@ contract SampleContract {
     uint public num;
     mapping(address=>uint) public balances;
 
+    event NumSet(uint indexed num);
+
     function setNum(uint _num) external {
         num = _num;
+        emit NumSet(num);
     }
 
     function getNum() external view returns(uint) { 
